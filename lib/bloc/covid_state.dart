@@ -1,4 +1,4 @@
-part of 'covid_bloc.dart';
+import 'package:equatable/equatable.dart';
 
 abstract class CovidState extends Equatable {
   const CovidState();
@@ -11,8 +11,8 @@ class CovidInitial extends CovidState {}
 
 class CovidLoading extends CovidState {}
 
-class CovidLoaded extends CovidState {
-  final CovidModel covidModel;
+class CovidLoaded<T> extends CovidState {
+  final T covidModel;
   const CovidLoaded(this.covidModel);
 }
 

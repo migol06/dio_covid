@@ -3,6 +3,8 @@ import 'package:dio_mig/model/covidmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'bloc/covid_state.dart';
+
 class CovidPage extends StatefulWidget {
   const CovidPage({Key? key}) : super(key: key);
 

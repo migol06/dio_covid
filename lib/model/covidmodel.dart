@@ -5,13 +5,13 @@ class CovidModel {
 
   CovidModel({Global? global, List<Countries>? countries, String? date}) {
     if (global != null) {
-      this._global = global;
+      _global = global;
     }
     if (countries != null) {
-      this._countries = countries;
+      _countries = countries;
     }
     if (date != null) {
-      this._date = date;
+      _date = date;
     }
   }
 
@@ -23,26 +23,25 @@ class CovidModel {
   set date(String? date) => _date = date;
 
   CovidModel.fromJson(Map<String, dynamic> json) {
-    _global =
-        json['Global'] != null ? new Global.fromJson(json['Global']) : null;
+    _global = json['Global'] != null ? Global.fromJson(json['Global']) : null;
     if (json['Countries'] != null) {
       _countries = <Countries>[];
       json['Countries'].forEach((v) {
-        _countries!.add(new Countries.fromJson(v));
+        _countries!.add(Countries.fromJson(v));
       });
     }
     _date = json['Date'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this._global != null) {
-      data['Global'] = this._global!.toJson();
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    if (_global != null) {
+      data['Global'] = _global!.toJson();
     }
-    if (this._countries != null) {
-      data['Countries'] = this._countries!.map((v) => v.toJson()).toList();
+    if (_countries != null) {
+      data['Countries'] = _countries!.map((v) => v.toJson()).toList();
     }
-    data['Date'] = this._date;
+    data['Date'] = _date;
     return data;
   }
 }
@@ -63,22 +62,22 @@ class Global {
       int? newRecovered,
       int? totalRecovered}) {
     if (newConfirmed != null) {
-      this._newConfirmed = newConfirmed;
+      _newConfirmed = newConfirmed;
     }
     if (totalConfirmed != null) {
-      this._totalConfirmed = totalConfirmed;
+      _totalConfirmed = totalConfirmed;
     }
     if (newDeaths != null) {
-      this._newDeaths = newDeaths;
+      _newDeaths = newDeaths;
     }
     if (totalDeaths != null) {
-      this._totalDeaths = totalDeaths;
+      _totalDeaths = totalDeaths;
     }
     if (newRecovered != null) {
-      this._newRecovered = newRecovered;
+      _newRecovered = newRecovered;
     }
     if (totalRecovered != null) {
-      this._totalRecovered = totalRecovered;
+      _totalRecovered = totalRecovered;
     }
   }
 
@@ -105,13 +104,13 @@ class Global {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['NewConfirmed'] = this._newConfirmed;
-    data['TotalConfirmed'] = this._totalConfirmed;
-    data['NewDeaths'] = this._newDeaths;
-    data['TotalDeaths'] = this._totalDeaths;
-    data['NewRecovered'] = this._newRecovered;
-    data['TotalRecovered'] = this._totalRecovered;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['NewConfirmed'] = _newConfirmed;
+    data['TotalConfirmed'] = _totalConfirmed;
+    data['NewDeaths'] = _newDeaths;
+    data['TotalDeaths'] = _totalDeaths;
+    data['NewRecovered'] = _newRecovered;
+    data['TotalRecovered'] = _totalRecovered;
     return data;
   }
 }
@@ -140,34 +139,34 @@ class Countries {
       int? totalRecovered,
       String? date}) {
     if (country != null) {
-      this._country = country;
+      _country = country;
     }
     if (countryCode != null) {
-      this._countryCode = countryCode;
+      _countryCode = countryCode;
     }
     if (slug != null) {
-      this._slug = slug;
+      _slug = slug;
     }
     if (newConfirmed != null) {
-      this._newConfirmed = newConfirmed;
+      _newConfirmed = newConfirmed;
     }
     if (totalConfirmed != null) {
-      this._totalConfirmed = totalConfirmed;
+      _totalConfirmed = totalConfirmed;
     }
     if (newDeaths != null) {
-      this._newDeaths = newDeaths;
+      _newDeaths = newDeaths;
     }
     if (totalDeaths != null) {
-      this._totalDeaths = totalDeaths;
+      _totalDeaths = totalDeaths;
     }
     if (newRecovered != null) {
-      this._newRecovered = newRecovered;
+      _newRecovered = newRecovered;
     }
     if (totalRecovered != null) {
-      this._totalRecovered = totalRecovered;
+      _totalRecovered = totalRecovered;
     }
     if (date != null) {
-      this._date = date;
+      _date = date;
     }
   }
 
@@ -206,17 +205,17 @@ class Countries {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Country'] = this._country;
-    data['CountryCode'] = this._countryCode;
-    data['Slug'] = this._slug;
-    data['NewConfirmed'] = this._newConfirmed;
-    data['TotalConfirmed'] = this._totalConfirmed;
-    data['NewDeaths'] = this._newDeaths;
-    data['TotalDeaths'] = this._totalDeaths;
-    data['NewRecovered'] = this._newRecovered;
-    data['TotalRecovered'] = this._totalRecovered;
-    data['Date'] = this._date;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['Country'] = _country;
+    data['CountryCode'] = _countryCode;
+    data['Slug'] = _slug;
+    data['NewConfirmed'] = _newConfirmed;
+    data['TotalConfirmed'] = _totalConfirmed;
+    data['NewDeaths'] = _newDeaths;
+    data['TotalDeaths'] = _totalDeaths;
+    data['NewRecovered'] = _newRecovered;
+    data['TotalRecovered'] = _totalRecovered;
+    data['Date'] = _date;
     return data;
   }
 }

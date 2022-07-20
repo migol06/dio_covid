@@ -1,6 +1,7 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:dio_mig/model/covidmodel.dart';
-import 'package:flutter/foundation.dart';
 
 class ApiProvider {
   String url = 'https://api.covid19api.com/summary';
@@ -14,10 +15,10 @@ class ApiProvider {
   Future<CovidModel> fetchCovidList() async {
     try {
       Response response = await _dio.get(url);
-      print(response.data.runtimeType);
+      log(response.data.runtimeType.toString());
       return CovidModel.fromJson(response.data);
     } catch (error) {
-      print(error);
+      log(error.toString());
     }
     throw 'Error';
   }
