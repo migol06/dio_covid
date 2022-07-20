@@ -11,21 +11,11 @@ class ApiProvider {
     receiveTimeout: 2000,
   ));
 
-  // Future<CovidModel> fetchCovidList() async {
-  //   CovidModel covidModel;
-  //   try {
-  //     Response response = await _dio.get(url);
-  //     // covidModel = CovidModel.fromMap(response.data);
-  //     return CovidModel.fromMap(response.data);
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  // }
-
   Future<CovidModel> fetchCovidList() async {
     try {
       Response response = await _dio.get(url);
-      return CovidModel.fromMap(response.data);
+      print(response.data.runtimeType);
+      return CovidModel.fromJson(response.data);
     } catch (error) {
       print(error);
     }
